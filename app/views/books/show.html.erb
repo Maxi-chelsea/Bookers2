@@ -16,15 +16,12 @@
 <h2>Books detail<h2>
   <table class='table'>
   <tbody>
-  <% @books.each do |book| %>
     <tr>
-      <td><%= book.user_id %></td>
-      <td><%= book.title %></td>
-      <td><%= book.body %></td>
-      <%= link_to "edit", edit_book_path(book.id) %>
-      <%= link_to "destroy", book_path(book.id), method: :delete, "data-confirm" => "本当に消しますか？" %>
+      <td><%= @book.title %></td>
+      <td><%= @book.body %></td>
+      <%= link_to "edit", edit_book_path(@book.id) %>
+      <%= link_to "destroy", book_path(@book.id), method: :delete, "data-confirm" => "本当に消しますか？" %>
     </tr>
-  <% end %>
   </tbody>
   </table>
 

@@ -13,34 +13,39 @@
   <% end %>
 <% end %>
 
-<h2>Books<h2>
-  <table class='table'>
-  <thead>
-    <tr>
-      <th></th>
-      <th>Title</th>
-      <th>Opinion</th>
-    </tr>
-  </thead>
-  <tbody>
-  <% @books.each do |book| %>
-    <tr>
-      <td><%= book.title %></td>
-      <td><%= book.body %></td>
-    </tr>
-  <% end %>
-  </tbody>
-  </table>
+<div class='row'>
+  <h2 class="mt-3">New book</h2>
+  <%= form_with model:@book, local:true do |f| %>
+    <div class="form-group">
+      <h4>Title</h4>
+      <%= f.text_field :title %>
+    </div>
+    <div class="form-group">
+      <h4>Opinion</h4>
+      <%= f.text_area :body %>
+    </div>
 
-<h2>New book</h2>
-<%= form_with model:@book, local:true do |f| %>
+      <%= f.submit 'Create Book' %>
+    <% end %>
 
-  <h4>Title</h4>
-  <%= f.text_field :title %>
-  
-  <h4>Opinion</h4>
-  <%= f.text_area :body %>
-  
-  <%= f.submit 'Create Book' %>
-<% end %>
+<div class='col-md-8 offset-md-1'>
+  <h2>Books<h2>
+    <table class='table table-hover table-inverse'>
+    <thead>
+      <tr>
+        <th>Title</th>
+        <th>Opinion</th>
+      </tr>
+    </thead>
+    <tbody>
+    <% @books.each do |book| %>
+      <tr>
+        <td><%= book.title %></td>
+        <td><%= book.body %></td>
+      </tr>
+    <% end %>
+    </tbody>
+    </table>
+
+
 
