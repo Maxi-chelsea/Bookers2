@@ -13,6 +13,8 @@
   <% end %>
 <% end %>
 
+<%= render 'list', book: @book %>
+
 <h2>Books detail<h2>
   <table class='table'>
   <tbody>
@@ -24,15 +26,3 @@
     </tr>
   </tbody>
   </table>
-
-<h2>New book</h2>
-<%= form_with model:@book, local:true do |f| %>
-
-  <h4>Title</h4>
-  <%= f.text_field :title %>
-
-  <h4>Opinion</h4>
-  <%= f.text_area :body %>
-
-  <%= f.submit 'Create Book' %>
-<% end %>

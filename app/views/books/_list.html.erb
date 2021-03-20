@@ -1,29 +1,12 @@
-<body>
-    <header>
-  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-    <div class="container">
-      <a class="navbar-brand" href="/"><span>Bookers</span></a>
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarNavDropdown">
-        <ul class="navbar-nav ml-auto">
-          <li><a class="fas fa-home nav-link text-light" href="/users/27556"> Home</a></li>
-          <li><a class="fas fa-users nav-link text-light" href="/users"> Users</a></li>
-          <li><a class="fas fa-book-open nav-link text-light" href="/books"> Books</a></li>
-          <li><a class="fas fa-sign-out-alt nav-link text-light" rel="nofollow" data-method="delete" href="/users/sign_out"> logout</a></li>
-        </ul>
-      </div>
+<h2 class="mt-3">New book</h2>
+  <%= form_with model:book, local:true do |f| %>
+    <div class="form-group">
+      <h4>Title</h4>
+      <%= f.text_field :title %>
     </div>
-  </nav>
-</header>
-
-<footer>
-  <div class='container mt-5'>
-  	<div class='row'>
-    	<div class='mx-auto'>
-    		<p>CopyRight Infratop.inc</p>
-    	</div>
+    <div class="form-group">
+      <h4>Opinion</h4>
+      <%= f.text_area :body %>
     </div>
-  </div>
-</footer>
+      <%= f.submit 'Create Book' %>
+    <% end %>
