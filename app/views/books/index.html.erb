@@ -13,11 +13,15 @@
   <% end %>
 <% end %>
 
-<div class='row'>
-  <%= render 'list', book: @book %>
-
-<div class='col-md-8 offset-md-1'>
-  <h2>Books<h2>
+<div class='container px-5 px-sm-0'>
+  <div class='row'>
+    <div class="col-md-3">
+      <%= render 'list', book: @book %>
+    </div>
+  </div>
+  <div class='row'>
+    <div class="col-md-8">
+      <h2>Books<h2>
     <table class='table table-hover table-inverse'>
     <thead>
       <tr>
@@ -38,6 +42,10 @@
     <% end %>
     </tbody>
     </table>
+    </div>
+  </div>
+</div>
+
 
 
 
