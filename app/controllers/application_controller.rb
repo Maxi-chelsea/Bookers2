@@ -3,6 +3,10 @@ class ApplicationController < ActionController::Base
 
   protected
 
+  def show
+    @book = Book.find(params[:id])
+  end
+
   def configure_permitted_parameters
     devise_parameter_sanitizer.permit(:sign_up, keys: [:email, :name])
     devise_parameter_sanitizer.permit(:sign_in, keys: [:name])
