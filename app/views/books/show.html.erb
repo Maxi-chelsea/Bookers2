@@ -1,21 +1,6 @@
-<% if flash[:notice] %>
-     <p id="notice">
-       <%= flash[:notice] %>
-     </p>
-<% end %>
-
-<% if @book.errors.any? %>
-<p><%= pluralize(@book.errors.count, "error") %> prohibited this book from being saved:</p>
-  <% @book.errors.full_messages.each do |message| %>
-    <div class="form-error">
-       <%= message %>
-    </div>
-  <% end %>
-<% end %>
-
 <div class='container px-5 px-sm-0'>
   <div class='row'>
-    <%= render 'list', book: @book, user: @user %>
+    <%= render 'list', book: @new_book, user: @user %>
     <div class="col-md-8">
       <h2>Books detail<h2>
         <table class='table'>
@@ -23,6 +8,8 @@
             <tr>
               <td>
                 <%= attachment_image_tag @user, :profile_image, :fill, 50, 50, format: 'jpeg', fallback: "no_image.jpg" %><br>
+                <%= link_to user_path(@user.id) do %>
+                  <p><%= @user.name %></p>
                 <% end %>
               </td>
               <td><%= @book.title %></td>
