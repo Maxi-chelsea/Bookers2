@@ -1,7 +1,7 @@
 <div class='container px-5 px-sm-0'>
   <div class='row'>
-    <%= render 'books/list', book: @book, user: @user %>
-    <div class="col-md-8">
+    <%= render 'books/list', book: @new_book, user: @user %>
+    <div class="col-md-8 offset-md-1">
       <h2>Books<h2>
         <table class='table'>
           <thead>
@@ -17,7 +17,11 @@
               <td>
                 <%= attachment_image_tag @user, :profile_image, :fill, 50, 50, format: 'jpeg', fallback: "no_image.jpg" %><br>
               </td>
-              <td><%= book.title %></td>
+              <td>
+                <%= link_to book_path(book.id) do %>
+                <%= book.title %>
+                <% end %>
+              </td>
               <td><%= book.body %></td>
             </tr>
           <% end %>
