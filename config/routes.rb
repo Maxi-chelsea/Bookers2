@@ -11,5 +11,5 @@ Rails.application.routes.draw do
   end
   root 'homes#top'
   get 'home/about' => 'homes#about'
-  get "search" => "searches#search"
+  get 'search' => 'searches#search'
 end
