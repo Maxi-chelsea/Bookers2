@@ -1,7 +1,5 @@
-<h2>Results index</h2>
-
-
 <% if @range == "User" %>
+<h2>Users search for "<%= @word  %>"</h2>
   <table class="table table-hover table-inverse">
     <thead>
       <tr>
@@ -25,6 +23,7 @@
     </tbody>
   </table>
 <% else %>
+<h2>Books search for "<%= @word  %>"</h2>
   <table class="table table-hover table-inverse">
     <thead>
       <tr>
@@ -38,7 +37,7 @@
         <tr>
           <td><%= attachment_image_tag(book.user, :profile_image, :fill, 50, 50, fallback: "no-image-icon.jpg") %></td>
           <td>
-            <%= link_to book.title, book_path(book), class: "book_#{book.id}" %>
+            <%= link_to book.title, book_path(book) %>
           </td>
           <td><%= book.body %></td>
         </tr>
